@@ -18,7 +18,6 @@ const fetchRecipes = async () => {
   } catch (err) {
     console.error("Error fetching recipes:", err);
     return null;
-  git checkoput 
 };
 
 const fetchNutrients = async (query: string) => {
