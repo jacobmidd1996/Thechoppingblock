@@ -1,6 +1,6 @@
 import React from "react";
 
-const Explorerecipes = () => {
+const ExploreRecipes = () => {
   return (
     <div>
       <h1>Welcome to the Recipe App</h1>
@@ -9,4 +9,4 @@ const Explorerecipes = () => {
   );
 };
 
-export default Explorerecipes;
+export default ExploreRecipes;
