@@ -14,14 +14,6 @@
 
 </div>
 
-<!-- PROJECT LOGO -->
-
-<div align="center">
-  <a href="https://github.com/404pandas/project-2-setup-guide">
-  <!-- TODO: Correct this file path to a logo if you would like one; otherwise, delete this a href -->
-    <img src="./public/images/" alt="Logo" width="80" height="80">
-  </a>
-
 <!-- TODO: Edit App name -->
   <h3 align="center">Project 2 App Name</h3>
 
