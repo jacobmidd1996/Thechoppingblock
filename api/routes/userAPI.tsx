@@ -1,16 +1,16 @@
-const fetchRecipes = async () => {
+const fetchRecipes = async (query: string) => {
   try {
     const edamamUrl = process.env.REACT_APP_EDAMAM_URL;
     const edamamKey = process.env.REACT_APP_EDAMAM_KEY;
     const edamamId = process.env.REACT_APP_EDAMAM_ID;
 
-    if (!edamamUrl || !edamamKey) {
+    if (!edamamUrl || !edamamKey || !edamamId) {
       console.error("EDAMAM API URL, KEY, or ID is missing.");
       return null;
     }
 
     const response = await fetch(
-      `${edamamUrl}&app_id=${edamamId}&app_key=${edamamKey}`,
+      `${edamamUrl}&q=${query}&app_id=${edamamId}&app_key=${edamamKey}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -63,3 +63,5 @@ const fetchNutrients = async (query: string) => {
     return null;
   }
 };
+
+export { fetchRecipes, fetchNutrients };
