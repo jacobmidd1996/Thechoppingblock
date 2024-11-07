@@ -10,7 +10,7 @@
 =======
     "target": "es6",
     "module": "commonjs",
-    "rootDir": "./",
+    "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
     "moduleResolution": "node",
