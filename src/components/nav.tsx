@@ -7,7 +7,7 @@ const Navbar = () => {
       <h2 style={styles.title}>Recipe App</h2>
       <ul style={styles.navLinks}>
         <li>
-          <Link to="/" style={styles.link}>
+          <Link to="/home" style={styles.link}>
             Home
           </Link>
         </li>
