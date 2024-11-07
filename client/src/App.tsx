@@ -1,10 +1,10 @@
 // src/App.tsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "../client/public/src/pages/Home";
-import Favorites from "../client/public/src/pages/Favorites";
-import Navbar from "../client/public/src/components/nav";
-import ExploreRecipes from "../client/public/src/pages/ExploreRecipes";
+import Home from "./pages/Home";
+import Favorites from "./pages/Favorites";
+import Navbar from "./components/nav";
+import ExploreRecipes from "./pages/ExploreRecipes";
 
 const App: React.FC = () => {
   return (

@@ -20,6 +20,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "src/components/searchbar.tsx",
+    "src/components/searchbar.js"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

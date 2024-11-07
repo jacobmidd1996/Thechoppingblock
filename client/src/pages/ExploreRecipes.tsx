@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { fetchRecipes } from "../../api/routes/userAPI";
-import SearchBar from "../../server/src/searchbar";
+import { fetchRecipes } from "../api/userAPI";
+import SearchBar from "../components/searchbar";
 
 const ExploreRecipes: React.FC = () => {
   const [recipes, setRecipes] = useState<any[]>([]);
