@@ -4,7 +4,8 @@ import { UserLogin } from "../interfaces/UserLogin";
 
 const login = async (userInfo: UserLogin) => {
   try {
-    const response = await fetch("http://localhost:5000/auth/login", { // Use full URL for development
+    const response = await fetch("http://localhost:5000/auth/login", {
+      // Use full URL for development
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,4 +27,3 @@ const login = async (userInfo: UserLogin) => {
 };
 
 export { login };
-
