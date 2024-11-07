@@ -1,16 +1,16 @@
-const fetchRecipes = async () => {
+const fetchRecipes = async (query: string) => {
   try {
     const edamamUrl = process.env.REACT_APP_EDAMAM_URL;
     const edamamKey = process.env.REACT_APP_EDAMAM_KEY;
     const edamamId = process.env.REACT_APP_EDAMAM_ID;
 
-    if (!edamamUrl || !edamamKey) {
+    if (!edamamUrl || !edamamKey || !edamamId) {
       console.error("EDAMAM API URL, KEY, or ID is missing.");
       return null;
     }
 
     const response = await fetch(
-      `${edamamUrl}&app_id=${edamamId}&app_key=${edamamKey}`,
+      `${edamamUrl}&q=${query}&app_id=${edamamId}&app_key=${edamamKey}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -36,7 +36,6 @@ const fetchNutrients = async (query: string) => {
     const nutritionixKey = process.env.REACT_APP_NUTRITIONIX_KEY;
     const nutritionixId = process.env.REACT_APP_NUTRITIONIX_ID;
 
-    // Ensure all necessary environment variables are present
     if (!nutritionixUrl || !nutritionixKey || !nutritionixId) {
       throw new Error(
         "Missing required environment variables: Nutritionix API URL, Key, or ID"
@@ -47,7 +46,7 @@ const fetchNutrients = async (query: string) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-app-id": nutritionixId, // It's now ensured that this will never be undefined
+        "x-app-id": nutritionixId,
         "x-app-key": nutritionixKey,
       },
       body: JSON.stringify({ query }),
@@ -64,3 +63,5 @@ const fetchNutrients = async (query: string) => {
     return null;
   }
 };
+
+export { fetchRecipes, fetchNutrients };
