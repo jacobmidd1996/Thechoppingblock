@@ -1,7 +1,7 @@
 // models/Favorite.ts
 
 import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
-import { User } from './Users';  // Import User model
+import { User } from './User';  // Import User model
 import { Recipe } from './Recipe';  // Import Recipe model
 
 // Define the attributes for the Favorite model
@@ -55,7 +55,7 @@ export function FavoriteFactory(sequelize: Sequelize): typeof Favorite {
       sequelize,  // Passing the connection instance
       modelName: 'Favorite',
       tableName: 'favorites',  // Table name in the database
-      timestamps: true,  // Enable timestamps for createdAt and updatedAt
+      timestamps: true, 
     }
   );
 
