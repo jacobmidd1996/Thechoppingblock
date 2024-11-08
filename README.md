@@ -12,7 +12,7 @@
 </div>
 
 <!-- TODO: Edit App name -->
-  <h3 align="center">The chopping block</h3>
+  <h3 align="center">The Chopping Block</h3>
 
   <p align="center">
   <!-- TODO: Edit App description -->
