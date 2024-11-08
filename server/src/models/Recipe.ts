@@ -1,8 +1,6 @@
-// models/Recipe.ts
 
 import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
 
-// Define the attributes for the Recipe model
 interface RecipeAttributes {
   id: number;
   title: string;
@@ -16,10 +14,8 @@ interface RecipeAttributes {
   updatedAt?: Date;
 }
 
-// Optional fields for creating a new Recipe
 interface RecipeCreationAttributes extends Optional<RecipeAttributes, 'id'> {}
 
-// Define the Recipe model class
 class Recipe extends Model<RecipeAttributes, RecipeCreationAttributes> implements RecipeAttributes {
   public id!: number;
   public title!: string;
@@ -33,7 +29,6 @@ class Recipe extends Model<RecipeAttributes, RecipeCreationAttributes> implement
   public readonly updatedAt!: Date;
 }
 
-// RecipeFactory function to initialize the model
 export function RecipeFactory(sequelize: Sequelize): typeof Recipe {
   Recipe.init(
     {
@@ -47,7 +42,7 @@ export function RecipeFactory(sequelize: Sequelize): typeof Recipe {
         allowNull: false,
       },
       ingredients: {
-        type: DataTypes.TEXT,  // Use TEXT for longer strings
+        type: DataTypes.TEXT, 
         allowNull: false,
       },
       instructions: {
@@ -55,11 +50,11 @@ export function RecipeFactory(sequelize: Sequelize): typeof Recipe {
         allowNull: false,
       },
       prepTime: {
-        type: DataTypes.INTEGER,  // Time in minutes
+        type: DataTypes.INTEGER,  
         allowNull: false,
       },
       cookTime: {
-        type: DataTypes.INTEGER,  // Time in minutes
+        type: DataTypes.INTEGER, 
         allowNull: false,
       },
       servings: {
@@ -67,15 +62,15 @@ export function RecipeFactory(sequelize: Sequelize): typeof Recipe {
         allowNull: false,
       },
       difficulty: {
-        type: DataTypes.ENUM('Easy', 'Medium', 'Hard'),  // Only allow these values
+        type: DataTypes.ENUM('Easy', 'Medium', 'Hard'), 
         allowNull: false,
       },
     },
     {
-      sequelize,  // Passing the connection instance
+      sequelize,  
       modelName: 'Recipe',
-      tableName: 'recipes',  // Table name in the database
-      timestamps: true,  // Enable timestamps for createdAt and updatedAt
+      tableName: 'recipes',  
+      timestamps: true, 
     }
   );
 
@@ -83,8 +78,6 @@ export function RecipeFactory(sequelize: Sequelize): typeof Recipe {
 }
 
 export { Recipe };
-
-// Example usage of helper functions
 
 // Create a new recipe
 export async function createRecipe(data: RecipeCreationAttributes): Promise<Recipe | null> {
