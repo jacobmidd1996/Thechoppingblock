@@ -29,16 +29,34 @@ router.get("/:id", async (req: Request, res: Response) => {
   }
 });
 
-// POST /users - Create a new user
+// POST /recipes - Create a new recipe
 router.post("/", async (req: Request, res: Response) => {
-  const { recipeName, recipeInst } = req.body;
+  const { 
+    title, 
+    ingredients, 
+    instructions, 
+    prepTime, 
+    cookTime, 
+    servings, 
+    difficulty 
+  } = req.body;
+
   try {
-    const newRecipe = await Recipe.create({ recipeName, recipeInst });
+    const newRecipe = await Recipe.create({
+      title,
+      ingredients,
+      instructions,
+      prepTime,
+      cookTime,
+      servings,
+      difficulty
+    });
     res.status(201).json(newRecipe);
   } catch (error: any) {
     res.status(400).json({ message: error.message });
   }
 });
+
 
 // PUT /users/:id - future development
 // router.put("/:id", async (req: Request, res: Response) => {
