@@ -1,3 +1,4 @@
+
 const fetchRecipes = async (query: string) => {
   try {
     const edamamUrl = import.meta.env.VITE_EDAMAM_URL;
@@ -8,7 +9,7 @@ const fetchRecipes = async (query: string) => {
       console.error("EDAMAM API URL, KEY, or ID is missing.");
       return null;
     }
-
+   
     const response = await fetch(
       `${edamamUrl}&q=${query}&app_id=${edamamId}&app_key=${edamamKey}`,
       {
@@ -23,6 +24,7 @@ const fetchRecipes = async (query: string) => {
     }
 
     const data = await response.json();
+    console.log(data);
     return data;
   } catch (err) {
     console.error("Error fetching recipes:", err);
