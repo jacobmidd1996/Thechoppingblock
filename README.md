@@ -1,8 +1,3 @@
-<!-- For assistance using this README for your project, reach out to your instructinoal staff. -->
-
-<!-- TODO: Highlight "404pandas" and shift+command+L (for mac) or cntrl+shift+L (for windows) to select all instances of the example Github Username and type your Username in its place -->
-<!-- TODO: Highlight "project-2-setup-guide" and shift+command+L (for mac) or cntrl+shift+L (for windows) to select all instances of the example Github Repository name and type your repostitory name in its place -->
-
 <div align="center">
 
   <!-- Add additional badges using the following format: -->
@@ -16,16 +11,8 @@
 
 </div>
 
-<!-- PROJECT LOGO -->
-
-<div align="center">
-  <a href="https://github.com/404pandas/project-2-setup-guide">
-  <!-- TODO: Correct this file path to a logo if you would like one; otherwise, delete this a href -->
-    <img src="./public/images/" alt="Logo" width="80" height="80">
-  </a>
-
 <!-- TODO: Edit App name -->
-  <h3 align="center">Project 2 App Name</h3>
+  <h3 align="center">The chopping block</h3>
 
   <p align="center">
   <!-- TODO: Edit App description -->
@@ -115,7 +102,7 @@ Once completely built, this application will function as a deployed app on Rende
 1. Clone the rep
 
 ```
-git clone https://github.com/404pandas/project-2-setup-guide.git
+git clone git@github.com:jacobmidd1996/Thechoppingblock.git
 ```
 
 2. Install dependencies
@@ -201,17 +188,15 @@ This project is licensed under the MIT license.
 
 <!-- TODO: Add your name, portfolio link, and email if you would like here -->
 
-[Mary Elenius](https://maryelenius.com/) - mary.panda.jackson@gmail.com
+[Jacob Middleton]
+[Victoria Mata](https://maryelenius.com/)
+[Katrina Moody](https://maryelenius.com/)
 
-[Contributor One](https://maryelenius.com/) - contributor.one@email.com
-
-[Contributor One](https://maryelenius.com/) - contributor.one@email.com
-
-[Contributor One](https://maryelenius.com/) - contributor.one@email.com
+[Chandler Robinson](https://maryelenius.com/)
 
 Project Links:
 
-[Github Repository](https://github.com/404pandas/project-2-setup-guide)
+[Github Repository](https://github.com/jacobmidd1996/Thechoppingblock)
 
 <!-- TODO: add your deployment link here -->
 
