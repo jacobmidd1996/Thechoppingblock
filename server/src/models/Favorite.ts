@@ -1,8 +1,7 @@
 
 import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
-import { User } from './User';  
-import { Recipe } from './Recipe';  
-
+import { User } from './User.js';  
+import { Recipe } from './Recipe.js';  
 
 interface FavoriteAttributes {
   id: number;

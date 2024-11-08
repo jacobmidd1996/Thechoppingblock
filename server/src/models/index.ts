@@ -2,11 +2,9 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { Sequelize } from "sequelize";
-
-
-import { UserFactory } from "./User";
-import { RecipeFactory } from "./Recipe";
-import { FavoriteFactory } from "./Favorite";
+import { UserFactory } from "./User.js";
+import { RecipeFactory } from "./Recipe.js";
+import { FavoriteFactory } from "./Favorite.js";
 
 const sequelize = process.env.DB_URL
   ? new Sequelize(process.env.DB_URL)
