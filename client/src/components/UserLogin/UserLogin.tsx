@@ -1,5 +1,3 @@
-import React from "react";
-
 const UserLogin = () => {
   return (
     <div className="form-container">
