@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { Sequelize } from "sequelize";
-import { UserFactory } from "./Users.js";
+import { UserFactory } from "./User.js";
 import { RecipeFactory } from "./Recipe.js";
 import { FavoriteFactory } from "./Favorite.js";
 
