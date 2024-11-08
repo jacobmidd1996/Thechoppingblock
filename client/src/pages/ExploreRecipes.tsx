@@ -13,6 +13,7 @@ const ExploreRecipes: React.FC = () => {
     setError(null);
     try {
       const data = await fetchRecipes(query);
+      console.log(data.hits);
       if (data) {
         setRecipes(data.hits);
       } else {
@@ -32,19 +33,18 @@ const ExploreRecipes: React.FC = () => {
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <div>
-        {recipes.map((recipe, index) => (
-          <div key={index}>
-            <h3>{recipe.recipe.label}</h3>
-            <img
+        {recipes.map((hit, index) => (
+  <h3 key={index}>{hit.recipe.label}</h3>
+  // <p>{hit.recipe.ingredients.map}</p>
+))}
+            {/* <img
               src={recipe.recipe.image}
               alt={recipe.recipe.label}
               style={{ width: "200px" }}
-            />
-            <p>{recipe.recipe.source}</p>
+            /> */}
+            {/* <p>{recipe.userId}</p> */}
           </div>
-        ))}
       </div>
-    </div>
   );
 };
 
