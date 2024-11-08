@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { fetchRecipes } from "../api/userAPI";
 import SearchBar from "../components/searchbar";
+import { FavoriteData } from "../interfaces/favoritedata";
 
 const ExploreRecipes: React.FC = () => {
-  const [recipes, setRecipes] = useState<any[]>([]);
+  const [recipes, setRecipes] = useState<FavoriteData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
