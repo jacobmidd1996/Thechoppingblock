@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { fetchRecipes } from "../api/userAPI";
 import SearchBar from "../components/searchbar";
 import { FavoriteData } from "../interfaces/FavoriteData" ;
+import "../../main.css";
 
 const ExploreRecipes: React.FC = () => {
   const [recipes, setRecipes] = useState<FavoriteData[]>([]);
@@ -27,24 +28,22 @@ const ExploreRecipes: React.FC = () => {
   };
 
   return (
-    <div>
+<div>
       <h2>Explore Recipes</h2>
       <SearchBar onSearch={handleSearch} />
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      <div>
+      <div className="explore-container">
         {recipes.map((hit, index) => (
-  <h3 key={index}>{hit.recipe.label}</h3>
-  // <p>{hit.recipe.ingredients.map}</p>
-))}
-            {/* <img
-              src={recipe.recipe.image}
-              alt={recipe.recipe.label}
-              style={{ width: "200px" }}
-            /> */}
-            {/* <p>{recipe.userId}</p> */}
+          <div key={index} className="recipe-card">
+            <h3>{hit.recipe.label}</h3>
+            <img src={hit.recipe.image} alt={hit.recipe.label} />
+            <p>Ingredients: {hit.recipe.ingredientLines.join(", ")}</p>
+            <p>Calories: {Math.round(hit.recipe.calories)}</p>
           </div>
+        ))}
       </div>
+    </div>
   );
 };
 
