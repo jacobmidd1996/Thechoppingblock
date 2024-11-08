@@ -1,10 +1,9 @@
-// models/Favorite.ts
 
 import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
-import { User } from './User';  // Import User model
-import { Recipe } from './Recipe';  // Import Recipe model
+import { User } from './User';  
+import { Recipe } from './Recipe';  
 
-// Define the attributes for the Favorite model
+
 interface FavoriteAttributes {
   id: number;
   userId: number;
@@ -13,10 +12,10 @@ interface FavoriteAttributes {
   updatedAt?: Date;
 }
 
-// Fields for creating a new Favorite
+
 interface FavoriteCreationAttributes extends Optional<FavoriteAttributes, 'id'> {}
 
-// Define the Favorite model class
+
 class Favorite extends Model<FavoriteAttributes, FavoriteCreationAttributes> implements FavoriteAttributes {
   public id!: number;
   public userId!: number;
@@ -25,7 +24,6 @@ class Favorite extends Model<FavoriteAttributes, FavoriteCreationAttributes> imp
   public readonly updatedAt!: Date;
 }
 
-// FavoriteFactory function to initialize the model
 export function FavoriteFactory(sequelize: Sequelize): typeof Favorite {
   Favorite.init(
     {
@@ -38,7 +36,7 @@ export function FavoriteFactory(sequelize: Sequelize): typeof Favorite {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: User,  // Reference to User model
+          model: User, 
           key: 'id',
         },
       },
@@ -46,29 +44,25 @@ export function FavoriteFactory(sequelize: Sequelize): typeof Favorite {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: Recipe,  // Reference to Recipe model
+          model: Recipe, 
           key: 'id',
         },
       },
     },
     {
-      sequelize,  // Passing the connection instance
+      sequelize, 
       modelName: 'Favorite',
-      tableName: 'favorites',  // Table name in the database
+      tableName: 'favorites',  
       timestamps: true, 
     }
   );
 
-  // Define relationships
   Favorite.belongsTo(User, { foreignKey: 'userId', as: 'user' });
   Favorite.belongsTo(Recipe, { foreignKey: 'recipeId', as: 'recipe' });
 
   return Favorite;
 }
 
-// Helper functions
-
-// Add a favorite recipe for a user
 export async function addFavorite(userId: number, recipeId: number): Promise<Favorite | null> {
   try {
     const favorite = await Favorite.create({ userId, recipeId });
@@ -79,7 +73,6 @@ export async function addFavorite(userId: number, recipeId: number): Promise<Fav
   }
 }
 
-// Remove a favorite recipe for a user
 export async function removeFavorite(userId: number, recipeId: number): Promise<boolean> {
   try {
     const result = await Favorite.destroy({ where: { userId, recipeId } });
@@ -90,7 +83,6 @@ export async function removeFavorite(userId: number, recipeId: number): Promise<
   }
 }
 
-// Check if a recipe is a favorite for a user
 export async function isFavorite(userId: number, recipeId: number): Promise<boolean> {
   try {
     const favorite = await Favorite.findOne({ where: { userId, recipeId } });
