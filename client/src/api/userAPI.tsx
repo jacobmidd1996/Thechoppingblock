@@ -1,8 +1,8 @@
 const fetchRecipes = async (query: string) => {
   try {
-    const edamamUrl = import.meta.env.REACT_APP_EDAMAM_URL;
-    const edamamKey = import.meta.env.REACT_APP_EDAMAM_KEY;
-    const edamamId = import.meta.env.REACT_APP_EDAMAM_ID;
+    const edamamUrl = import.meta.env.VITE_EDAMAM_URL;
+    const edamamKey = import.meta.env.VITE_EDAMAM_KEY;
+    const edamamId = import.meta.env.VITE_EDAMAM_ID;
 
     if (!edamamUrl || !edamamKey || !edamamId) {
       console.error("EDAMAM API URL, KEY, or ID is missing.");
@@ -32,9 +32,9 @@ const fetchRecipes = async (query: string) => {
 
 const fetchNutrients = async (query: string) => {
   try {
-    const nutritionixUrl = import.meta.env.REACT_APP_NUTRITIONIX_URL;
-    const nutritionixKey = import.meta.env.REACT_APP_NUTRITIONIX_KEY;
-    const nutritionixId = import.meta.env.REACT_APP_NUTRITIONIX_ID;
+    const nutritionixUrl = import.meta.env.VITE_NUTRITIONIX_URL;
+    const nutritionixKey = import.meta.env.VITE_NUTRITIONIX_KEY;
+    const nutritionixId = import.meta.env.VITE_NUTRITIONIX_ID;
 
     if (!nutritionixUrl || !nutritionixKey || !nutritionixId) {
       throw new Error(
