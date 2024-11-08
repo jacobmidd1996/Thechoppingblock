@@ -82,7 +82,6 @@ export function RecipeFactory(sequelize: Sequelize): typeof Recipe {
   return Recipe;
 }
 
-// Export the Recipe class itself for use in associations (like in Favorite.ts)
 export { Recipe };
 
 // Example usage of helper functions
