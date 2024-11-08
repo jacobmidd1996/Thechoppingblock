@@ -1,7 +1,7 @@
 // models/Favorite.ts
 
 import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
-import { User } from './User';  // Import User model
+import { User } from './Users';  // Import User model
 import { Recipe } from './Recipe';  // Import Recipe model
 
 // Define the attributes for the Favorite model
