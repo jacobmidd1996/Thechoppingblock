@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { fetchRecipes } from "../api/userAPI";
 import SearchBar from "../components/searchbar";
-import { FavoriteData } from "../interfaces/favoritedata";
+import { FavoriteData } from "../interfaces/FavoriteData" ;
 
 const ExploreRecipes: React.FC = () => {
   const [recipes, setRecipes] = useState<FavoriteData[]>([]);
