@@ -12,12 +12,12 @@
 </div>
 
 <!-- TODO: Edit App name -->
-  <h3 align="center">The chopping block</h3>
+  <h3 align="center">The Chopping Block!</h3>
 
   <p align="center">
   <!-- TODO: Edit App description -->
-    Project 2 Description will go here    <br />
-    <a href="https://github.com/404pandas/project-2-setup-guide"><strong>Explore the docs »</strong></a>
+    This application will help you build a recipe and also know the nutrional value of each dish! as well as the option to save your favorite recipes and even post your own!  <br />
+    <a href="https://github.com/jacobmidd1996/Thechoppingblock"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <!-- TODO: Edit deployment link -->
@@ -159,7 +159,7 @@ npm run start
 - [ ] Add Lines of future development ideas here
 - [ ] Add Lines of future development ideas here
 
-See the [open issues](https://github.com/404pandas/project-2-setup-guide/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/jacobmidd1996/Thechoppingblock/issues) for a full list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -189,10 +189,9 @@ This project is licensed under the MIT license.
 <!-- TODO: Add your name, portfolio link, and email if you would like here -->
 
 [Jacob Middleton]
-[Victoria Mata](https://maryelenius.com/)
-[Katrina Moody](https://maryelenius.com/)
-
-[Chandler Robinson](https://maryelenius.com/)
+[Victoria Mata]
+[Katrina Moody]
+[Chandler Robinson]
 
 Project Links:
 
