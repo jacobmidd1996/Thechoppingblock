@@ -1,11 +1,3 @@
-// delete before push
-// const EDAMAM_URL = "https://api.edamam.com/api/recipes/v2?type=public";
-// const EDAMAM_KEY = "28eac20e6daed0094f81025de5ab31f3";
-// const EDAMAM_ID = "06bde0fe";
-// const NUTRITIONIX_URL = "https://trackapi.nutritionix.com/v2/natural/nutrients";
-// const NUTRITIONIX_KEY = "f2508c42d076fa0b1c8794b5e1b16aff";
-// const NUTRITIONIX_ID = "12e03b7c";
-
 const fetchRecipes = async (query: string) => {
   try {
     const edamamUrl = import.meta.env.VITE_EDAMAM_URL;
