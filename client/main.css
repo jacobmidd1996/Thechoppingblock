@@ -63,6 +63,7 @@ button[type="submit"] {
   font-size: 16px;
   padding: 10px;
   border: none;
+  width: 320px;
   border-radius: 4px;
 }
 

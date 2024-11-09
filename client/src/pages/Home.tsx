@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../main.css";
 
 const Home: React.FC = () => {
   const [name, setName] = useState("");
