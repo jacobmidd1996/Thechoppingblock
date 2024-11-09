@@ -4,7 +4,10 @@ import SearchBar from "../components/searchbar";
 
 import { FavoriteData } from "../interfaces/FavoriteData";
 import { FoodItem } from "../interfaces/NutrientData";
-
+// import Grid from '@mui/material/Grid2';
+// comment this in if you want grid mary suggests
+// npm install @mui/material @emotion/react @emotion/styled
+//run this install command in client directory :)
 
 const ExploreRecipes: React.FC = () => {
   const [recipes, setRecipes] = useState<FavoriteData[]>([]);
@@ -46,12 +49,16 @@ const ExploreRecipes: React.FC = () => {
     console.log(nutrients);
   }, [nutrients]);
   return (
-<div>
+    <div>
       <h2>Explore Recipes</h2>
       <SearchBar onSearch={handleSearch} />
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
+      {/* <Grid container spacing={2}></Grid> */}
+      {/* turn the below div into a grid container from up above (see links in slack) - <3 jacob/mary */}
       <div className="explore-container">
+        {/*  <Grid size={4}> */}
+        {/* turn the below div into a grid item from up above (see links in slack) - <3 jacob/mary */}
         {recipes.map((hit, index) => (
           <div key={index} className="recipe-card">
             <h3>{hit.recipe.label}</h3>
@@ -60,7 +67,7 @@ const ExploreRecipes: React.FC = () => {
             <p>Calories: {Math.round(hit.recipe.calories)}</p>
           </div>
         ))}
-          {nutrients && (
+        {nutrients && (
           <div>
             <h3>Nutrient Information</h3>
             <p>Food: {nutrients?.food_name}</p>
