@@ -1,4 +1,3 @@
-
 import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
 import { User } from './User.js';  
 import { Recipe } from './Recipe.js';  
@@ -9,18 +8,21 @@ interface FavoriteAttributes {
   recipeId: number;
   createdAt?: Date;
   updatedAt?: Date;
+  favorited: boolean;
+  recipe?: Recipe;  
 }
-
 
 interface FavoriteCreationAttributes extends Optional<FavoriteAttributes, 'id'> {}
 
-
-class Favorite extends Model<FavoriteAttributes, FavoriteCreationAttributes> implements FavoriteAttributes {
+export class Favorite extends Model<FavoriteAttributes, FavoriteCreationAttributes> implements FavoriteAttributes {
   public id!: number;
   public userId!: number;
   public recipeId!: number;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
+  public userCreated!: boolean;
+  public favorited!: boolean;
+  public recipe?: Recipe; 
 }
 
 export function FavoriteFactory(sequelize: Sequelize): typeof Favorite {
@@ -47,6 +49,11 @@ export function FavoriteFactory(sequelize: Sequelize): typeof Favorite {
           key: 'id',
         },
       },
+      favorited: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+        allowNull: false,
+      },
     },
     {
       sequelize, 
@@ -56,40 +63,9 @@ export function FavoriteFactory(sequelize: Sequelize): typeof Favorite {
     }
   );
 
+  // Define relationships between Favorite, User, and Recipe
   Favorite.belongsTo(User, { foreignKey: 'userId', as: 'user' });
   Favorite.belongsTo(Recipe, { foreignKey: 'recipeId', as: 'recipe' });
 
   return Favorite;
 }
-
-export async function addFavorite(userId: number, recipeId: number): Promise<Favorite | null> {
-  try {
-    const favorite = await Favorite.create({ userId, recipeId });
-    return favorite;
-  } catch (error) {
-    console.error('Error adding favorite:', error);
-    return null;
-  }
-}
-
-export async function removeFavorite(userId: number, recipeId: number): Promise<boolean> {
-  try {
-    const result = await Favorite.destroy({ where: { userId, recipeId } });
-    return result > 0;
-  } catch (error) {
-    console.error('Error removing favorite:', error);
-    return false;
-  }
-}
-
-export async function isFavorite(userId: number, recipeId: number): Promise<boolean> {
-  try {
-    const favorite = await Favorite.findOne({ where: { userId, recipeId } });
-    return !!favorite;
-  } catch (error) {
-    console.error('Error checking favorite:', error);
-    return false;
-  }
-}
-
-export { Favorite };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 interface Recipe {
-  id: number;
+  recipeId: number;
   name: string;
   ingredients: string[];
   instructions: string[];
@@ -9,33 +9,34 @@ interface Recipe {
 }
 
 const Favorites: React.FC = () => {
-  const [myPosts, setMyPosts] = useState<Recipe[]>([]);
+  const [myFavorites, setMyFavorites] = useState<Recipe[]>([]);
 
   useEffect(() => {
-    const fetchMyPosts = async () => {
+    const fetchMyFavorites = async () => {
       try {
-        const response = await fetch("/api/my-recipes");
+        const userId = 1; // Replace this with the actual logged-in user ID
+        const response = await fetch(`/api/favorites?userId=${userId}`);
         if (response.ok) {
           const data = await response.json();
-          setMyPosts(data);
+          setMyFavorites(data);
         } else {
-          console.error("Failed to fetch my posts.");
+          console.error("Failed to fetch favorites.");
         }
       } catch (error) {
         console.error("Error:", error);
       }
     };
 
-    fetchMyPosts();
+    fetchMyFavorites();
   }, []);
 
   return (
     <div>
       <h1>Favorites</h1>
-      <h2>My Posts</h2>
+      <h2>My Favorite Recipes</h2>
       <div className="favorites-container">
-        {myPosts.map((recipe) => (
-          <div key={recipe.id} className="recipe-card">
+        {myFavorites.map((recipe) => (
+          <div key={recipe.recipeId} className="recipe-card">
             <h3>{recipe.name}</h3>
             <p>Ingredients: {recipe.ingredients.join(", ")}</p>
             <p>Instructions: {recipe.instructions.join(". ")}</p>
@@ -48,4 +49,3 @@ const Favorites: React.FC = () => {
 };
 
 export default Favorites;
-

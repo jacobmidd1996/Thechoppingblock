@@ -1,30 +1,37 @@
-
 import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
 
 interface RecipeAttributes {
-  id: number;
-  title: string;
-  ingredients: string;
+  recipeId: number;
+  label: string;
+  image: string;
+  calories: number;
+  ingredientLines: string[];
   instructions: string;
-  prepTime: number;
-  cookTime: number;
+  cuisineType: string[];
+  dietLabels: string[];
+  healthLabels: string[];
   servings: number;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
+  cookTime: number;
+  userCreated?: boolean;
   createdAt?: Date;
   updatedAt?: Date;
 }
 
-interface RecipeCreationAttributes extends Optional<RecipeAttributes, 'id'> {}
+
+interface RecipeCreationAttributes extends Optional<RecipeAttributes, 'recipeId'> {}
 
 class Recipe extends Model<RecipeAttributes, RecipeCreationAttributes> implements RecipeAttributes {
-  public id!: number;
-  public title!: string;
-  public ingredients!: string;
+  public recipeId!: number;
+  public label!: string;
+  public image!: string;
+  public calories!: number;
+  public ingredientLines!: string[];
   public instructions!: string;
-  public prepTime!: number;
-  public cookTime!: number;
+  public cuisineType!: string[];
+  public dietLabels!: string[];
+  public healthLabels!: string[];
   public servings!: number;
-  public difficulty!: 'Easy' | 'Medium' | 'Hard';
+  public cookTime!: number;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 }
@@ -32,45 +39,62 @@ class Recipe extends Model<RecipeAttributes, RecipeCreationAttributes> implement
 export function RecipeFactory(sequelize: Sequelize): typeof Recipe {
   Recipe.init(
     {
-      id: {
+      recipeId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      title: {
+      label: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      ingredients: {
-        type: DataTypes.TEXT, 
+      image: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      calories: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+      },
+      ingredientLines: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
       },
       instructions: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      prepTime: {
-        type: DataTypes.INTEGER,  
+      cuisineType: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
       },
-      cookTime: {
-        type: DataTypes.INTEGER, 
+      dietLabels: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: false,
+      },
+      healthLabels: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
       },
       servings: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      difficulty: {
-        type: DataTypes.ENUM('Easy', 'Medium', 'Hard'), 
+      cookTime: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
+      userCreated: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+        allowNull: false,
+      },      
     },
     {
-      sequelize,  
+      sequelize,
       modelName: 'Recipe',
-      tableName: 'recipes',  
-      timestamps: true, 
+      tableName: 'recipes',
+      timestamps: true,
     }
   );
 
@@ -78,36 +102,3 @@ export function RecipeFactory(sequelize: Sequelize): typeof Recipe {
 }
 
 export { Recipe };
-
-// Create a new recipe
-export async function createRecipe(data: RecipeCreationAttributes): Promise<Recipe | null> {
-  try {
-    const recipe = await Recipe.create(data);
-    return recipe;
-  } catch (error) {
-    console.error('Error creating recipe:', error);
-    return null;
-  }
-}
-
-// Find a recipe by ID
-export async function getRecipeById(id: number): Promise<Recipe | null> {
-  try {
-    const recipe = await Recipe.findByPk(id);
-    return recipe;
-  } catch (error) {
-    console.error('Error fetching recipe by ID:', error);
-    return null;
-  }
-}
-
-// Find all recipes
-export async function getAllRecipes(): Promise<Recipe[]> {
-  try {
-    const recipes = await Recipe.findAll();
-    return recipes;
-  } catch (error) {
-    console.error('Error fetching all recipes:', error);
-    return [];
-  }
-}

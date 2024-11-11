@@ -4,10 +4,6 @@ import SearchBar from "../components/searchbar";
 
 import { FavoriteData } from "../interfaces/FavoriteData";
 import { FoodItem } from "../interfaces/NutrientData";
-// import Grid from '@mui/material/Grid2';
-// comment this in if you want grid mary suggests
-// npm install @mui/material @emotion/react @emotion/styled
-//run this install command in client directory :)
 
 const ExploreRecipes: React.FC = () => {
   const [recipes, setRecipes] = useState<FavoriteData[]>([]);
@@ -20,7 +16,6 @@ const ExploreRecipes: React.FC = () => {
     setError(null);
     try {
       const data = await fetchRecipes(query);
-      // console.log(data.hits);
       if (data) {
         setRecipes(data.hits);
       } else {
@@ -33,7 +28,6 @@ const ExploreRecipes: React.FC = () => {
     }
     try {
       const data2 = await fetchNutrients(query);
-      // console.log(data2);
       if (data2) {
         setNutrients(data2);
       } else {
@@ -45,26 +39,48 @@ const ExploreRecipes: React.FC = () => {
       setLoading(false);
     }
   };
+
+  const handleFavorite = async (userId: number, recipeId: number) => {
+    try {
+      const token = localStorage.getItem("authToken"); // Get token from localStorage or use your state management solution
+      const response = await fetch("/api/favorites", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // Add token here for JWT-based authentication
+        },
+        body: JSON.stringify({ userId, recipeId }),
+      });
+  
+      if (response.ok) {
+        alert("Recipe added to favorites!");
+      } else {
+        alert("Failed to add recipe to favorites.");
+      }
+    } catch (error) {
+      alert("Error adding to favorites.");
+    }
+  };
+  
+
   useEffect(() => {
     console.log(nutrients);
   }, [nutrients]);
+
   return (
     <div>
       <h2>Explore Recipes</h2>
       <SearchBar onSearch={handleSearch} />
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      {/* <Grid container spacing={2}></Grid> */}
-      {/* turn the below div into a grid container from up above (see links in slack) - <3 jacob/mary */}
       <div className="explore-container">
-        {/*  <Grid size={4}> */}
-        {/* turn the below div into a grid item from up above (see links in slack) - <3 jacob/mary */}
         {recipes.map((hit, index) => (
           <div key={index} className="recipe-card">
             <h3>{hit.recipe.label}</h3>
             <img src={hit.recipe.image} alt={hit.recipe.label} />
             <p>Ingredients: {hit.recipe.ingredientLines.join(", ")}</p>
             <p>Calories: {Math.round(hit.recipe.calories)}</p>
+            <button onClick={() => handleFavorite(1, hit.recipe.recipeId)}>Add to Favorites</button>
           </div>
         ))}
         {nutrients && (
@@ -79,7 +95,6 @@ const ExploreRecipes: React.FC = () => {
             <p>Dietary Fiber: {nutrients?.nf_dietary_fiber}</p>
             <p>Sugars: {nutrients?.nf_sugars}</p>
             <img src={nutrients?.photo.thumb} alt={nutrients?.food_name}></img>
-            {/* Add more nutrient fields as needed */}
           </div>
         )}
       </div>
