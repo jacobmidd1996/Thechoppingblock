@@ -21,11 +21,11 @@
     <br />
     <br />
     <!-- TODO: Edit deployment link -->
-    <a href="https://github.com/404pandas/project-2-setup-guide">View Demo(Coming Soon)</a>
+    <a href="https://github.com/jacobmidd1996/Thechoppingblock">View Demo(Coming Soon)</a>
     ·
-    <a href="https://github.com/404pandas/project-2-setup-guide/issues">Report Bug</a>
+    <a href="https://github.com/jacobmidd1996/Thechoppingblock/issues">Report Bug</a>
     ·
-    <a href="https://github.com/404pandas/project-2-setup-guide/issues">Request Feature</a>
+    <a href="https://github.com/jacobmidd1996/Thechoppingblock/issues">Request Feature</a>
 
   </p>
 </div>
