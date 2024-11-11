@@ -20,6 +20,10 @@ const Navbar = () => {
             Favorites
           </Link>
         </li>
+        <li>
+          <Link to="/user-login" style={styles.link}>
+          Login</Link>
+        </li>
       </ul>
     </nav>
   );
