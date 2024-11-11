@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import Navbar from "./components/nav";
 import ExploreRecipes from "./pages/ExploreRecipes";
+import UserLogin from "./components/UserLogin/index";
 
 const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/explore-recipes" element={<ExploreRecipes />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/user-login" element={<UserLogin />} />
       </Routes>
     </Router>
   );

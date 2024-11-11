@@ -3,9 +3,7 @@ const fetchRecipes = async (query: string) => {
     const edamamUrl = import.meta.env.VITE_EDAMAM_URL;
     const edamamKey = import.meta.env.VITE_EDAMAM_KEY;
     const edamamId = import.meta.env.VITE_EDAMAM_ID;
-    // const edamamUrl = EDAMAM_URL;
-    // const edamamKey = EDAMAM_KEY;
-    // const edamamId = EDAMAM_ID;
+
     console.log(edamamUrl, edamamKey, edamamId);
     if (!edamamUrl || !edamamKey || !edamamId) {
       console.error("EDAMAM API URL, KEY, or ID is missing.");
