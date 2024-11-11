@@ -1,7 +1,6 @@
-import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
-import { User } from './User.js';  
-import { Recipe } from './Recipe.js';  
-
+import { DataTypes, Sequelize, Model, Optional } from "sequelize";
+import { User } from "./User.js";
+import { Recipe } from "./Recipe.js";
 interface FavoriteAttributes {
   id: number;
   userId: number;
@@ -9,12 +8,14 @@ interface FavoriteAttributes {
   createdAt?: Date;
   updatedAt?: Date;
   favorited: boolean;
-  recipe?: Recipe;  
+  recipe?: Recipe;
 }
-
-interface FavoriteCreationAttributes extends Optional<FavoriteAttributes, 'id'> {}
-
-export class Favorite extends Model<FavoriteAttributes, FavoriteCreationAttributes> implements FavoriteAttributes {
+interface FavoriteCreationAttributes
+  extends Optional<FavoriteAttributes, "id"> {}
+export class Favorite
+  extends Model<FavoriteAttributes, FavoriteCreationAttributes>
+  implements FavoriteAttributes
+{
   public id!: number;
   public userId!: number;
   public recipeId!: number;
@@ -22,9 +23,8 @@ export class Favorite extends Model<FavoriteAttributes, FavoriteCreationAttribut
   public readonly updatedAt!: Date;
   public userCreated!: boolean;
   public favorited!: boolean;
-  public recipe?: Recipe; 
+  public recipe?: Recipe;
 }
-
 export function FavoriteFactory(sequelize: Sequelize): typeof Favorite {
   Favorite.init(
     {
@@ -37,16 +37,16 @@ export function FavoriteFactory(sequelize: Sequelize): typeof Favorite {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: User, 
-          key: 'id',
+          model: User,
+          key: "id",
         },
       },
       recipeId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: Recipe, 
-          key: 'id',
+          model: Recipe,
+          key: "recipeId",
         },
       },
       favorited: {
@@ -56,16 +56,15 @@ export function FavoriteFactory(sequelize: Sequelize): typeof Favorite {
       },
     },
     {
-      sequelize, 
-      modelName: 'Favorite',
-      tableName: 'favorites',  
-      timestamps: true, 
+      sequelize,
+      modelName: "Favorite",
+      tableName: "favorites",
+      timestamps: true,
     }
   );
-
   // Define relationships between Favorite, User, and Recipe
-  Favorite.belongsTo(User, { foreignKey: 'userId', as: 'user' });
-  Favorite.belongsTo(Recipe, { foreignKey: 'recipeId', as: 'recipe' });
+  Favorite.belongsTo(User, { foreignKey: "userId", as: "user" });
+  Favorite.belongsTo(Recipe, { foreignKey: "recipeId", as: "recipe" });
 
   return Favorite;
 }

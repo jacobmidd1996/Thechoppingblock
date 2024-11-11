@@ -42,7 +42,7 @@ const ExploreRecipes: React.FC = () => {
 
   const handleFavorite = async (recipeId: number) => {
     const token = localStorage.getItem("token");
-    const userId = 1; 
+    const userId = 1;
     try {
       const response = await fetch("/api/favorites", {
         method: "POST",
@@ -52,11 +52,15 @@ const ExploreRecipes: React.FC = () => {
         },
         body: JSON.stringify({ userId, recipeId }),
       });
-  
+
       if (!response.ok) {
-        const isJson = response.headers.get("content-type")?.includes("application/json");
-        const errorData = isJson ? await response.json() : await response.text();
-  
+        const isJson = response.headers
+          .get("content-type")
+          ?.includes("application/json");
+        const errorData = isJson
+          ? await response.json()
+          : await response.text();
+
         console.error("Failed to add recipe to favorites:", errorData);
         alert("Failed to add recipe to favorites.");
       } else {
@@ -66,8 +70,6 @@ const ExploreRecipes: React.FC = () => {
       console.error("An error occurred:", error);
     }
   };
-  
-  
 
   useEffect(() => {
     console.log(nutrients);
@@ -86,7 +88,9 @@ const ExploreRecipes: React.FC = () => {
             <img src={hit.recipe.image} alt={hit.recipe.label} />
             <p>Ingredients: {hit.recipe.ingredientLines.join(", ")}</p>
             <p>Calories: {Math.round(hit.recipe.calories)}</p>
-            <button onClick={() => handleFavorite(hit.recipe.recipeId)}>Add to Favorites</button>
+            <button onClick={() => handleFavorite(hit.recipe.recipeId)}>
+              Add to Favorites
+            </button>
           </div>
         ))}
         {nutrients && (

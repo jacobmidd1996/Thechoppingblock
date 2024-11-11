@@ -1,5 +1,4 @@
-import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
-
+import { DataTypes, Sequelize, Model, Optional } from "sequelize";
 interface RecipeAttributes {
   recipeId: number;
   label: string;
@@ -16,11 +15,12 @@ interface RecipeAttributes {
   createdAt?: Date;
   updatedAt?: Date;
 }
-
-
-interface RecipeCreationAttributes extends Optional<RecipeAttributes, 'recipeId'> {}
-
-class Recipe extends Model<RecipeAttributes, RecipeCreationAttributes> implements RecipeAttributes {
+interface RecipeCreationAttributes
+  extends Optional<RecipeAttributes, "recipeId"> {}
+class Recipe
+  extends Model<RecipeAttributes, RecipeCreationAttributes>
+  implements RecipeAttributes
+{
   public recipeId!: number;
   public label!: string;
   public image!: string;
@@ -35,7 +35,6 @@ class Recipe extends Model<RecipeAttributes, RecipeCreationAttributes> implement
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 }
-
 export function RecipeFactory(sequelize: Sequelize): typeof Recipe {
   Recipe.init(
     {
@@ -43,6 +42,7 @@ export function RecipeFactory(sequelize: Sequelize): typeof Recipe {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
+        field: "id",
       },
       label: {
         type: DataTypes.STRING,
@@ -88,17 +88,15 @@ export function RecipeFactory(sequelize: Sequelize): typeof Recipe {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
         allowNull: false,
-      },      
+      },
     },
     {
       sequelize,
-      modelName: 'Recipe',
-      tableName: 'recipes',
+      modelName: "Recipe",
+      tableName: "recipes",
       timestamps: true,
     }
   );
-
   return Recipe;
 }
-
 export { Recipe };
