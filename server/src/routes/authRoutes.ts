@@ -15,10 +15,8 @@ export const login = async (req: Request, res: Response) => {
     return res.status(401).json({ message: "Authentication failed" });
   }
   const secretKey = process.env.JWT_SECRET_KEY || "";
-  const token = jwt.sign({ username, id: user.userId }, secretKey, {
-    expiresIn: "1h",
-  });
-  return res.json({ token });
+  const token = jwt.sign({ username, id: user.userId }, secretKey, { expiresIn: "1h" });
+   return res.json({ token });
 };
 const router = Router();
 // POST /login - Login a user

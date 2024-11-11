@@ -66,5 +66,5 @@ export function FavoriteFactory(sequelize: Sequelize): typeof Favorite {
   Favorite.belongsTo(User, { foreignKey: "userId", as: "user" });
   Favorite.belongsTo(Recipe, { foreignKey: "recipeId", as: "recipe" });
 
-  return Favorite;
-}
+  return Favorite
+};

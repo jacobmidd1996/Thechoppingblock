@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchNutrients, fetchRecipes } from "../api/userAPI";
 import SearchBar from "../components/searchbar";
-
 import { FavoriteData } from "../interfaces/FavoriteData";
 import { FoodItem } from "../interfaces/NutrientData";
 
@@ -70,7 +69,6 @@ const ExploreRecipes: React.FC = () => {
       console.error("An error occurred:", error);
     }
   };
-
   useEffect(() => {
     console.log(nutrients);
   }, [nutrients]);

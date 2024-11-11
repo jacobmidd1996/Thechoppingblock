@@ -5,7 +5,11 @@ interface UserAttributes {
   username: string;
   password: string;
 }
+
 interface UserCreationAttributes extends Optional<UserAttributes, "userId"> {}
+
+interface UserCreationAttributes extends Optional<UserAttributes, "userId"> {}
+
 export class User
   extends Model<UserAttributes, UserCreationAttributes>
   implements UserAttributes
