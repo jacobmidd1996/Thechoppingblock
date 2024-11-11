@@ -1,0 +1,75 @@
+.explore-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.recipe-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  width: 200px;
+  text-align: center;
+}
+
+.recipe-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.home-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow:#333;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-size: 16px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button[type="submit"] {
+  background-color: #012e4a;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  width: 320px;
+  border-radius: 4px;
+}
+
+button[type="submit"]:hover {
+  background-color: #024d7c;
+}
+.post-container {
+  margin: 50px;
+}
