@@ -20,7 +20,7 @@ router.get("/", async (_req: Request, res: Response) => {
 router.get("/:id", async (req: Request, res: Response) => {
   const { recipeId } = req.params;
   try {
-    const recipe = await Recipe.findByPk(recipeId);  // Use 'id' for PK search
+    const recipe = await Recipe.findByPk(recipeId); 
     if (recipe) {
       res.json(recipe);
     } else {
@@ -68,7 +68,7 @@ router.post("/", async (req: Request, res: Response) => {
 // POST /favorites - Mark a recipe as favorite for a specific user
 router.post("/favorites", authenticateToken, async (req: Request, res: Response) => {
   const { userId, recipeId } = req.body;
-  if (!req.user || req.user.username !== userId) {
+  if (req.user && req.user.id !== userId) {
     return res.status(403).json({ message: "Forbidden: User not authorized" });
   }
 
@@ -114,7 +114,7 @@ router.get("/favorites", authenticateToken, async (req: Request, res: Response) 
 });
 
 // GET /my-recipes - Get user-created recipes
-router.get("/my-recipes", authenticateToken, async (_req: Request, res: Response) => {
+router.get("/favorites", authenticateToken, async (_req: Request, res: Response) => {
   try {
     const recipes = await Recipe.findAll({ where: { userCreated: true } });
     res.json(recipes);
@@ -125,7 +125,7 @@ router.get("/my-recipes", authenticateToken, async (_req: Request, res: Response
 
 // DELETE /recipes/:id - Delete a recipe by id
 router.delete("/:id", authenticateToken, async (req: Request, res: Response) => {
-  const { id } = req.params;  // Use 'id' for the route parameter
+  const { id } = req.params; 
   try {
     const recipe = await Recipe.findByPk(id);
     if (recipe) {

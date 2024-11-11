@@ -40,27 +40,33 @@ const ExploreRecipes: React.FC = () => {
     }
   };
 
-  const handleFavorite = async (userId: number, recipeId: number) => {
+  const handleFavorite = async (recipeId: number) => {
+    const token = localStorage.getItem("token");
+    const userId = 1; 
     try {
-      const token = localStorage.getItem("authToken"); // Get token from localStorage or use your state management solution
       const response = await fetch("/api/favorites", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Add token here for JWT-based authentication
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ userId, recipeId }),
       });
   
-      if (response.ok) {
-        alert("Recipe added to favorites!");
-      } else {
+      if (!response.ok) {
+        const isJson = response.headers.get("content-type")?.includes("application/json");
+        const errorData = isJson ? await response.json() : await response.text();
+  
+        console.error("Failed to add recipe to favorites:", errorData);
         alert("Failed to add recipe to favorites.");
+      } else {
+        alert("Recipe added to favorites successfully!");
       }
     } catch (error) {
-      alert("Error adding to favorites.");
+      console.error("An error occurred:", error);
     }
   };
+  
   
 
   useEffect(() => {
@@ -80,7 +86,7 @@ const ExploreRecipes: React.FC = () => {
             <img src={hit.recipe.image} alt={hit.recipe.label} />
             <p>Ingredients: {hit.recipe.ingredientLines.join(", ")}</p>
             <p>Calories: {Math.round(hit.recipe.calories)}</p>
-            <button onClick={() => handleFavorite(1, hit.recipe.recipeId)}>Add to Favorites</button>
+            <button onClick={() => handleFavorite(hit.recipe.recipeId)}>Add to Favorites</button>
           </div>
         ))}
         {nutrients && (

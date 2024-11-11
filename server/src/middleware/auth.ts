@@ -11,8 +11,8 @@ export const authenticateToken = (
   res: Response,
   next: NextFunction
 ) => {
+  
   const authHeader = req.headers.authorization;
-
   if (authHeader) {
     const token = authHeader.split(' ')[1];
     const secretKey = process.env.JWT_SECRET_KEY || '';
@@ -21,13 +21,7 @@ export const authenticateToken = (
       if (err) {
         return res.sendStatus(403); 
       }
-
       req.user = user as JwtPayload;
-
-      if (req.user.username !== req.body.userId) {
-        return res.status(403).json({ message: "Forbidden: User mismatch" });
-      }
-
       return next(); 
     });
   } else {
