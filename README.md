@@ -188,7 +188,7 @@ This project is licensed under the MIT license.
 
 <!-- TODO: Add your name, portfolio link, and email if you would like here -->
 
-[Jacob Middleton]
+[Jacob D. Middleton]
 [Victoria Mata]
 [Katrina Moody]
 [Chandler Robinson]
