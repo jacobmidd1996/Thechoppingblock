@@ -2,18 +2,18 @@ import { DataTypes, Sequelize, Model, Optional } from "sequelize";
 import bcrypt from "bcrypt";
 
 interface UserAttributes {
-  id: number;
+  userId: number;
   username: string;
   password: string;
 }
 
-interface UserCreationAttributes extends Optional<UserAttributes, "id"> {}
+interface UserCreationAttributes extends Optional<UserAttributes, "userId"> {}
 
 export class User
   extends Model<UserAttributes, UserCreationAttributes>
   implements UserAttributes
 {
-  public id!: number;
+  public userId!: number;
   public username!: string;
   public password!: string;
 
@@ -30,7 +30,7 @@ export class User
 export function UserFactory(sequelize: Sequelize): typeof User {
   User.init(
     {
-      id: {
+      userId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
