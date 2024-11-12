@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(255, 242, 183);
+}
+
 .explore-container {
   display: flex;
   flex-wrap: wrap;
@@ -23,12 +27,16 @@
   padding: 20px;
   border-radius: 8px;
   background-color: #f9f9f9;
-  box-shadow:#333;
+  box-shadow: #333;
 }
 
-h1, h2 {
+h1 {
+  color: #0a4f58;
+  padding-left: 30px;
+}
+h2 {
   text-align: center;
-  color: #333;
+  color: rgb(184, 119, 0);
 }
 
 form {
@@ -58,7 +66,7 @@ textarea {
 }
 
 button[type="submit"] {
-  background-color: #012e4a;
+  background-color: #0a4f58;
   color: white;
   font-size: 16px;
   padding: 10px;
@@ -68,7 +76,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #024d7c;
+  background-color: #0a4f58;
 }
 .post-container {
   margin: 50px;

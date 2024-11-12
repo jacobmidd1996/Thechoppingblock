@@ -12,8 +12,8 @@ const Home: React.FC = () => {
 
     const newRecipe = {
       name,
-      ingredients: ingredients.split(",").map((item) => item.trim()), 
-      instructions: instructions.split(".").map((item) => item.trim()), 
+      ingredients: ingredients.split(",").map((item) => item.trim()),
+      instructions: instructions.split(".").map((item) => item.trim()),
       calories: parseInt(calories, 10),
     };
 
@@ -42,25 +42,43 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <h1>Welcome to the Recipe App</h1>
-      <p>Find and save your favorite recipes here!</p>
+      <h1>Find and save your favorite recipes here!</h1>
       <h2>Add a New Recipe</h2>
       <form onSubmit={handleSubmit} className="post-container">
         <label>
           Recipe Name:
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
         </label>
         <label>
           Ingredients:
-          <input type="text" value={ingredients} onChange={(e) => setIngredients(e.target.value)} required />
+          <input
+            type="text"
+            value={ingredients}
+            onChange={(e) => setIngredients(e.target.value)}
+            required
+          />
         </label>
         <label>
           Instructions:
-          <textarea value={instructions} onChange={(e) => setInstructions(e.target.value)} required />
+          <textarea
+            value={instructions}
+            onChange={(e) => setInstructions(e.target.value)}
+            required
+          />
         </label>
         <label>
           Calories:
-          <input type="number" value={calories} onChange={(e) => setCalories(e.target.value)} required />
+          <input
+            type="number"
+            value={calories}
+            onChange={(e) => setCalories(e.target.value)}
+            required
+          />
         </label>
         <button type="submit">Add Recipe</button>
       </form>
@@ -69,4 +87,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-
