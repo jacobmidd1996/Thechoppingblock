@@ -48,8 +48,6 @@ const Favorites: React.FC = () => {
 
   return (
     <div>
-      <h1>Favorites</h1>
-
       <h2>My Posts</h2>
       <div className="my-posts-container">
         {myPosts.map((post) => (

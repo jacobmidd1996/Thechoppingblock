@@ -42,6 +42,7 @@ const Home: React.FC = () => {
 
   return (
     <div>
+
       <h1>Find and save your favorite recipes here!</h1>
       <h2>Add a New Recipe</h2>
       <form onSubmit={handleSubmit} className="post-container">
@@ -80,7 +81,7 @@ const Home: React.FC = () => {
             required
           />
         </label>
-        <button type="submit">Add Recipe</button>
+        <button type="submit">Post Recipe</button>
       </form>
     </div>
   );
