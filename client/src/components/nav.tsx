@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
+import unnamed from "./Assets/unnamed.png";
 
 const Navbar = () => {
   return (
     <nav style={styles.navbar}>
-      <h2 style={styles.title}>The Chopping Block</h2>
+      <h2 style={styles.title}>
+        The Chopping Block
+        <img src={unnamed} style={styles.img} />
+      </h2>
       <ul style={styles.navLinks}>
         <li>
           <Link to="/" style={styles.link}>
@@ -22,7 +26,8 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/user-login" style={styles.link}>
-          Login</Link>
+            Login
+          </Link>
         </li>
       </ul>
     </nav>
@@ -35,11 +40,16 @@ const styles = {
     alignItems: "center",
     justifyContent: "space-between",
     padding: "10px 20px",
-    backgroundColor: "#333",
+    backgroundColor: "#0a4f58",
     color: "white",
   },
   title: {
-    fontSize: "24px",
+    fontSize: "30px",
+    color: "white",
+  },
+  img: {
+    width: "42px",
+    height: "auto",
   },
   navLinks: {
     listStyle: "none",

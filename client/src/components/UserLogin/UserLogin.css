@@ -11,8 +11,27 @@
 }
 
 .modal-content {
+  display: block;
   background: white;
   padding: 20px;
   border-radius: 5px;
-  width: 300px;
+  width: 75vw;
+  height: auto;
+}
+
+form {
+  margin: auto;
+  width: 50%;
+}
+
+.username {
+  width: 75%;
+}
+
+.password {
+  width: 95%;
+}
+
+button {
+  margin-top: 10px;
 }

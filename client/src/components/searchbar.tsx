@@ -36,6 +36,7 @@ const styles = {
     justifyContent: "center",
     gap: "10px",
     marginBottom: "20px",
+    marginLeft: "20px",
   },
   input: {
     padding: "10px",
@@ -47,7 +48,7 @@ const styles = {
     padding: "10px 20px",
     fontSize: "16px",
     borderRadius: "4px",
-    backgroundColor: "#333",
+    backgroundColor: "#0a4f58",
     color: "white",
     border: "none",
     cursor: "pointer",
