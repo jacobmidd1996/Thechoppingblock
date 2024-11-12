@@ -1,4 +1,5 @@
 import React from "react";
+import "./UserLogin.css";
 
 interface ModalProps {
   closeModal: () => void;

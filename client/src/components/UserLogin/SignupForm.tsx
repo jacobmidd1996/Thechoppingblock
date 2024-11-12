@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./UserLogin.css";
 
 const SignupForm: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -13,12 +14,14 @@ const SignupForm: React.FC = () => {
     <form onSubmit={handleSignup}>
       <h2>Signup</h2>
       <input
+        className="username"
         type="text"
         placeholder="Create Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
+        className="password"
         type="password"
         placeholder="Password"
         value={password}
