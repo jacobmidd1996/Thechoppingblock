@@ -12,6 +12,7 @@ const UserLogin: React.FC = () => {
   return (
     <nav>
       <button
+        style={styles.button}
         onClick={() => {
           setIsLogin(true);
           toggleModal();
@@ -30,6 +31,19 @@ const UserLogin: React.FC = () => {
       )}
     </nav>
   );
+};
+
+const styles = {
+  button: {
+    backgroundColor: "#0a4f58",
+    color: "white",
+    padding: "8px 32px",
+    fontSize: "24px",
+    fontFamily: "Arial, Helvetica, sans-serif",
+    margin: "100px",
+    borderRadius: "10px",
+    border: "2px solid rgb(184, 119, 0)",
+  },
 };
 
 export default UserLogin;

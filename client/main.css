@@ -35,10 +35,8 @@ h1 {
   padding-left: 30px;
 }
 h2 {
-  text-align: center;
+  margin-left: 48px;
   color: rgb(184, 119, 0);
-
-
 }
 
 form {
@@ -49,7 +47,7 @@ form {
 
 label {
   font-size: 18px;
-  color:#012e4a;
+  color: #012e4a;
 }
 
 input[type="text"],
@@ -87,8 +85,7 @@ button[type="submit"]:hover {
 .nutrients {
   margin: 40px;
   border-style: solid;
-  border-color:#012e4a;
-  padding:40px;
+  border-color: #012e4a;
+  padding: 40px;
   font-family: "Montsserat";
 }
-

@@ -15,4 +15,12 @@ const Modal: React.FC<ModalProps> = ({ closeModal, children }) => (
   </div>
 );
 
+const styles = {
+  button: {
+    backgroundColor: "#0a4f58",
+    color: "white",
+    padding: "8px 24px",
+  },
+};
+
 export default Modal;

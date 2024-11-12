@@ -1,11 +1,10 @@
 body {
-    margin: 0;
-    font-family: "Monteserrat";
-    background-color: #ffb703;
-  }
-  
-  .home-p {
-    display: flex;
-    justify-content: center;
-  }
- 
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(255, 242, 183);
+}
+
+.home-p {
+  display: flex;
+  justify-content: center;
+}
