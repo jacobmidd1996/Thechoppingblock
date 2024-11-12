@@ -125,7 +125,7 @@ npm run start
 
 5. Visit app:
 
-[http://localhost:3001/](http://localhost:3001/)
+[https://thechoppingblock.onrender.com](https://thechoppingblock.onrender.com)
 
 <!-- ROADMAP -->
 
