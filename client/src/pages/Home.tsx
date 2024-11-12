@@ -43,7 +43,6 @@ const Home: React.FC = () => {
   return (
     <div>
       <h1>Welcome to the Recipe App</h1>
-      <p>Find and save your favorite recipes here!</p>
       <h2>Add a New Recipe</h2>
       <form onSubmit={handleSubmit} className="post-container">
         <label>
@@ -62,7 +61,7 @@ const Home: React.FC = () => {
           Calories:
           <input type="number" value={calories} onChange={(e) => setCalories(e.target.value)} required />
         </label>
-        <button type="submit">Add Recipe</button>
+        <button type="submit">Post Recipe</button>
       </form>
     </div>
   );

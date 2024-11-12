@@ -1,5 +1,11 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Monteserrat";
+    background-color: #ffb703;
   }
   
+  .home-p {
+    display: flex;
+    justify-content: center;
+  }
+ 

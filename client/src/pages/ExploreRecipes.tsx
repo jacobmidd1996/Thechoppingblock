@@ -76,6 +76,7 @@ const ExploreRecipes: React.FC = () => {
   return (
     <div>
       <h2>Explore Recipes</h2>
+      <div className="searchbar">
       <SearchBar onSearch={handleSearch} />
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
@@ -92,7 +93,7 @@ const ExploreRecipes: React.FC = () => {
           </div>
         ))}
         {nutrients && (
-          <div>
+          <div className="nutrients">
             <h3>Nutrient Information</h3>
             <p>Food: {nutrients?.food_name}</p>
             <p>Calories: {nutrients?.nf_calories}</p>
@@ -106,6 +107,7 @@ const ExploreRecipes: React.FC = () => {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };
